@@ -1,10 +1,14 @@
-import classNames from 'classnames/bind';
-import styles from './Header.module.scss';
-
-const cx = classNames.bind(styles);
+import MiddleHeader from './MiddleHeader';
+import NavBar from './NavBar';
+import './Header.module.scss';
 
 function Header() {
-    return <header className={cx('wrapper')}>header</header>;
+    return (
+        <header>
+            <MiddleHeader />
+            <NavBar />
+        </header>
+    );
 }
 
 export default Header;
