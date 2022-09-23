@@ -221,12 +221,27 @@
                 text-transform: uppercase;
                 font-weight: 600;
                 font-size: 1.8rem;
+                padding-bottom: 8px;
+                border-bottom: 1px solid #e7e7e7;
             }
         }
     }
 
-    .cart-item {
-        border-bottom: 1px solid #ccc;
+    .cart-view {
+        border-bottom: 1px solid #e7e7e7;
+        text-align: center;
+        padding: 14px 0;
+
+        .mini-cart-icon {
+            img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        .content {
+            font-size: 1.5rem;
+            color: #677279;
+        }
     }
 
     .total {
@@ -270,11 +285,3 @@
         }
     }
 }
-// dropdown-content
-// title
-// cart-item
-// total
-// 'text'
-// 'amount'
-// 'button'
-// link-to-cart

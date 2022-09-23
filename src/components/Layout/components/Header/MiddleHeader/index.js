@@ -119,10 +119,15 @@ function MiddleHeader() {
                                     <div className={cx('title')}>
                                         <h2 className={cx('content')}>giỏ hàng</h2>
                                     </div>
-                                    <div className={cx('cart-item')}></div>
+                                    <div className={cx('cart-view')}>
+                                        <div className={cx('mini-cart-icon')}>
+                                            <img src={images.cartEmty} alt="cart" />
+                                        </div>
+                                        <div className={cx('content')}>Hiện chưa có sản phẩm</div>
+                                    </div>
                                     <table className={cx('total')}>
                                         <tr>
-                                            <td className={cx('total-text')}>Tổng tiền</td>
+                                            <td className={cx('total-text')}>Tổng tiền:</td>
                                             <td className={cx('total-amount')}>0₫</td>
                                         </tr>
                                         <tr className={cx('button')}>
