@@ -7,6 +7,32 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 
 function MiddleHeader() {
+    const [actionShow, setActionShow] = useState({
+        account: false,
+        cart: false,
+    });
+
+    const handleActionShow = (type) => {
+        if (type == 'account') {
+            if (actionShow.account == false) {
+                setActionShow({ account: true, cart: false });
+            } else {
+                setActionShow({ account: false, cart: false });
+            }
+        }
+        if (type == 'cart') {
+            if (actionShow.cart == false) {
+                setActionShow({ account: false, cart: true });
+            } else {
+                setActionShow({ account: false, cart: false });
+            }
+        }
+    };
+
+    const handleDropdownClick = (e) => {
+        e.stopPropagation();
+    };
+
     return (
         <div className={cx('middle')}>
             <form className={cx('container')}>
@@ -23,7 +49,12 @@ function MiddleHeader() {
                     </button>
                 </div>
                 <div className={cx('action')}>
-                    <div className={cx('account')}>
+                    <div
+                        className={actionShow.account ? cx('account', 'js-action-show') : cx('account')}
+                        onClick={() => {
+                            handleActionShow('account');
+                        }}
+                    >
                         <div className={cx('text')}>
                             <div className={cx('link')}>
                                 <span className={cx('box-icon')}>
@@ -32,11 +63,47 @@ function MiddleHeader() {
                                 <span className={cx('box-text')}>Đăng nhập/Đăng ký</span>
                             </div>
                         </div>
-                        {/* <div className={cx('dropdown')}>
-                                <div className={cx('dropdown-content')}></div>
-                            </div> */}
+                        <div className={cx('dropdown')} onClick={(e) => handleDropdownClick(e)}>
+                            <div className={cx('dropdown-content')}>
+                                <form>
+                                    <div className={cx('title')}>
+                                        <h2 className={cx('heading')}>Đăng nhập tài khoản</h2>
+                                        <p className={cx('legend')}>Nhập email và mật khẩu của bạn:</p>
+                                    </div>
+                                    <div className={cx('inner')}>
+                                        <div className={cx('form__input-wrapper')}>
+                                            <input type="email" required placeholder="Email" />
+                                        </div>
+                                        <div className={cx('form__input-wrapper')}>
+                                            <input type="password" required placeholder="Password" />
+                                        </div>
+                                        <div className={cx('recaptcha')}>
+                                            <p className={cx('content')}>
+                                                This site is protected by reCAPTCHA and the Google{' '}
+                                                <a href="https://policies.google.com/privacy">Privacy Policy</a> and{' '}
+                                                <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                                            </p>
+                                        </div>
+                                        <button className={cx('submit-btn', 'primary-button')} type="submit">
+                                            Đăng nhập
+                                        </button>
+                                        <div className={cx('secondary-action')}>
+                                            <p>
+                                                Khách hàng mới? <a href="#">Tạo tài khoản</a>
+                                            </p>
+                                            <p>
+                                                Quên mật khẩu? <a href="#">Khôi phục mật khẩu</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    <div className={cx('cart')}>
+                    <div
+                        className={actionShow.cart ? cx('cart', 'js-action-show') : cx('cart')}
+                        onClick={() => handleActionShow('cart')}
+                    >
                         <div className={cx('text')}>
                             <div className={cx('link')}>
                                 <span className={cx('box-icon')}>
@@ -46,6 +113,32 @@ function MiddleHeader() {
                                     </span>
                                 </span>
                                 <span className={cx('box-text')}>Giỏ hàng</span>
+                            </div>
+                            <div className={cx('dropdown')} onClick={(e) => handleDropdownClick(e)}>
+                                <div className={cx('dropdown-content')}>
+                                    <div className={cx('title')}>
+                                        <h2 className={cx('content')}>giỏ hàng</h2>
+                                    </div>
+                                    <div className={cx('cart-item')}></div>
+                                    <table className={cx('total')}>
+                                        <tr>
+                                            <td className={cx('total-text')}>Tổng tiền</td>
+                                            <td className={cx('total-amount')}>0₫</td>
+                                        </tr>
+                                        <tr className={cx('button')}>
+                                            <td>
+                                                <a href="#" className={cx('link-to-cart', 'primary-button')}>
+                                                    xem giỏ hàng
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="#" className={cx('link-to-pay', 'primary-button-2')}>
+                                                    thanh toán
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
