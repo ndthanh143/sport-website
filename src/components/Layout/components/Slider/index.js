@@ -38,7 +38,7 @@ function Slider() {
                 <div className={cx('slides')}>
                     <div className={cx('wrap-slides')}>
                         {sliderImages.map((item, index) => (
-                            <div className={slideIndex === item.id ? cx('image', 'active') : cx('image')}>
+                            <div className={slideIndex === item.id ? cx('image', 'active') : cx('image')} key={index}>
                                 <img src={item.url} alt={`slide${index + 1}`} key={index + 1} />
                             </div>
                         ))}

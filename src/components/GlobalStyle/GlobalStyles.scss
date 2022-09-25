@@ -6,6 +6,7 @@
     --middle-header: #222;
     --text-color: #333;
     --text-white-color: #fff;
+    --primary-button-color: #ed1c24;
 }
 
 * {
@@ -43,7 +44,7 @@ a {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     cursor: pointer;
-    border: 1px solid var(--search-btn-color);
+    border: 1px solid var(--primary-button-color);
     z-index: 1;
     color: var(--primary);
     background-color: transparent;
@@ -86,7 +87,7 @@ a {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     cursor: pointer;
-    border: 1px solid var(--search-btn-color);
+    border: 1px solid var(--primary-button-color);
     z-index: 1;
     color: #ed1c24;
     background-color: #ed1c24;
@@ -120,4 +121,20 @@ a {
         transition-duration: 0.4s;
         transform-origin: 100%;
     }
+}
+
+.col {
+    padding: 0 15px;
+}
+
+.col-3 {
+    width: calc(100% / 3);
+}
+.col-4 {
+    width: 25%;
+}
+
+.row {
+    display: flex;
+    // justify-content: space-between;
 }

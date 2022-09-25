@@ -126,22 +126,24 @@ function MiddleHeader() {
                                         <div className={cx('content')}>Hiện chưa có sản phẩm</div>
                                     </div>
                                     <table className={cx('total')}>
-                                        <tr>
-                                            <td className={cx('total-text')}>Tổng tiền:</td>
-                                            <td className={cx('total-amount')}>0₫</td>
-                                        </tr>
-                                        <tr className={cx('button')}>
-                                            <td>
-                                                <a href="#" className={cx('link-to-cart', 'primary-button')}>
-                                                    xem giỏ hàng
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" className={cx('link-to-pay', 'primary-button-2')}>
-                                                    thanh toán
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        <tbody>
+                                            <tr>
+                                                <td className={cx('total-text')}>Tổng tiền:</td>
+                                                <td className={cx('total-amount')}>0₫</td>
+                                            </tr>
+                                            <tr className={cx('button')}>
+                                                <td>
+                                                    <a href="#" className={cx('link-to-cart', 'primary-button')}>
+                                                        xem giỏ hàng
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="#" className={cx('link-to-pay', 'primary-button-2')}>
+                                                        thanh toán
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
