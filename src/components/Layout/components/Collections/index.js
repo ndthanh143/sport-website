@@ -1,9 +1,11 @@
+import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Collections.module.scss';
 import videos from '~/assets/videos';
-import React from 'react';
 import ReactPlayer from 'react-player/youtube';
 import sportImages from '~/assets/images/categories/sport';
+import Button from '~/components/Button';
+
 const cx = classNames.bind(styles);
 
 function Collections() {
@@ -19,7 +21,9 @@ function Collections() {
                         <p></p>
                         <h3 className={cx('title')}>thời trang thể thao</h3>
                         <p className={cx('action')}>
-                            <button className={cx('button', 'primary-button')}>Xem ngay</button>
+                            <div className={cx('button')}>
+                                <Button primary>Xem Ngay</Button>
+                            </div>
                         </p>
                     </div>
                 </div>
@@ -29,7 +33,10 @@ function Collections() {
                         <p></p>
                         <h3 className={cx('title')}>phụ kiện thể thao</h3>
                         <p className={cx('action')}>
-                            <button className={cx('button', 'primary-button')}>Xem ngay</button>
+                            {/* <button className={cx('button', 'primary-button')}>Xem ngay</button> */}
+                            <div className={cx('button')}>
+                                <Button primary>Xem Ngay</Button>
+                            </div>
                         </p>
                     </div>
                 </div>

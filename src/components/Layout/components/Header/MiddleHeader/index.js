@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './MiddleHeader.module.scss';
 import images from '~/assets/images';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import Button from '~/components/Button';
 const cx = classNames.bind(styles);
 
 function MiddleHeader() {
@@ -84,9 +85,12 @@ function MiddleHeader() {
                                                 <a href="https://policies.google.com/terms">Terms of Service</a> apply.
                                             </p>
                                         </div>
-                                        <button className={cx('submit-btn', 'primary-button')} type="submit">
+                                        {/* <button className={cx('submit-btn', 'primary-button')} type="submit">
                                             Đăng nhập
-                                        </button>
+                                        </button> */}
+                                        <div className={cx('submit-btn')}>
+                                            <Button primary>đăng nhập</Button>
+                                        </div>
                                         <div className={cx('secondary-action')}>
                                             <p>
                                                 Khách hàng mới? <a href="#">Tạo tài khoản</a>
@@ -133,14 +137,18 @@ function MiddleHeader() {
                                             </tr>
                                             <tr className={cx('button')}>
                                                 <td>
-                                                    <a href="#" className={cx('link-to-cart', 'primary-button')}>
-                                                        xem giỏ hàng
-                                                    </a>
+                                                    <span className={cx('link-to-cart')}>
+                                                        <Button primary to="/cart">
+                                                            xem giỏ hàng
+                                                        </Button>
+                                                    </span>
                                                 </td>
                                                 <td>
-                                                    <a href="#" className={cx('link-to-pay', 'primary-button-2')}>
-                                                        thanh toán
-                                                    </a>
+                                                    <span className={cx('link-to-pay')}>
+                                                        <Button primaryReverse to="/checkout">
+                                                            thanh toán
+                                                        </Button>
+                                                    </span>
                                                 </td>
                                             </tr>
                                         </tbody>
