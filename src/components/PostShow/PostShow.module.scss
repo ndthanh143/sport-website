@@ -1,0 +1,40 @@
+.posts-list {
+}
+
+.post {
+    padding: 0 12px;
+}
+
+.thumb {
+    height: 180px;
+    overflow: hidden;
+    cursor: pointer;
+    img {
+        width: 100%;
+    }
+}
+
+.description {
+    margin-top: 4px;
+}
+
+.title {
+    color: #000;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+
+    cursor: pointer;
+
+    &:hover {
+        color: var(--red-color);
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+.date {
+    font-size: 1.4rem;
+    margin-top: 8px;
+    display: flex;
+}

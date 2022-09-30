@@ -5,14 +5,14 @@ import styles from './SectionCollection.module.scss';
 
 const cx = classNames.bind(styles);
 
-function SectionCollection({ to, title, children }) {
+function SectionCollection({ to, title, children, titleAlignCenter }) {
     const props = {};
 
     return (
         <div {...props} className={cx('section-collection')}>
             <div className={cx('container')}>
                 {title ? (
-                    <h2 className={cx('title')}>
+                    <h2 className={titleAlignCenter ? cx('title', 'title-align-center') : cx('title')}>
                         {to ? (
                             <Link className={cx('link')} to={to}>
                                 {title}

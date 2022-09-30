@@ -1,7 +1,6 @@
 .section-collection {
     display: flex;
     justify-content: center;
-    border-top: 15px solid #ebecf0;
     padding: 10px 0;
     margin-bottom: 20px;
 }
@@ -22,4 +21,8 @@
             color: var(--red-color);
         }
     }
+}
+
+.title-align-center {
+    text-align: center;
 }
