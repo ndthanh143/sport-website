@@ -1,0 +1,43 @@
+// pagination
+.pagination {
+    color: #000;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+}
+.pagination-node {
+    display: flex;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    a {
+        opacity: 0.4;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+.prev {
+    padding: 0 6px;
+    margin: 0 4px;
+    transform: rotate(180deg);
+    width: 40px;
+    display: flex;
+    img {
+        width: 100%;
+    }
+}
+.page-node {
+    padding: 0 6px;
+    margin: 0 4px;
+}
+.next {
+    padding: 0 6px;
+    margin: 0 4px;
+    width: 40px;
+    display: flex;
+    img {
+        width: 100%;
+    }
+}

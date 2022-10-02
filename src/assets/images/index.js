@@ -3,5 +3,7 @@ const images = {
     user: require('~/assets/images/user.svg').default,
     cart: require('~/assets/images/cart.svg').default,
     cartEmty: require('~/assets/images/cart-emty.svg').default,
+    filterIconTitle: require('~/assets/images/filter-icon-title.svg').default,
+    arrow: require('~/assets/images/arrow.svg').default,
 };
 export default images;
