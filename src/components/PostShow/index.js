@@ -3,9 +3,16 @@ import styles from './PostShow.module.scss';
 import posts from '~/assets/images/posts';
 
 const cx = classNames.bind(styles);
-function PostShow({ numberColumn }) {
+function PostShow({ numberColumn, horizontal, row, miniShow, largeShow }) {
+    const classnames = {
+        postList: 'posts-list',
+        horizontal,
+        row,
+        miniShow,
+        largeShow,
+    };
     return (
-        <div className={cx('posts-list', 'row')}>
+        <div className={cx(classnames)}>
             {posts.map((post, index) => (
                 <div className={cx('post', numberColumn)} key={index}>
                     <div className={cx('thumb')}>
@@ -16,7 +23,7 @@ function PostShow({ numberColumn }) {
                             <p>{post.title}</p>
                         </span>
                         <span className={cx('date')}>
-                            <p>Tin tức</p> <p>- {post.date}</p>
+                            <b>Tin tức</b>&nbsp;-&nbsp;{post.date}
                         </span>
                     </div>
                 </div>

@@ -3,13 +3,14 @@ import Contact from '~/pages/Contact';
 import About from '~/pages/About';
 import News from '~/pages/News';
 import Collection from '~/pages/Collection';
+import SideBarLayout from '~/components/Layout/SideBarLayout';
 
 //public routes
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/contact', component: Contact },
     { path: '/about', component: About },
-    { path: '/news', component: News },
+    { path: '/news', component: News, layout: SideBarLayout },
     { path: '/collection', component: Collection },
 ];
 

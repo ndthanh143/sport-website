@@ -58,7 +58,7 @@ function Home() {
             </div>
             <div className={cx('new-posts')}>
                 <SectionCollection title={'Bài viết mới nhất'} titleAlignCenter>
-                    <PostShow numberColumn={'col-4'} />
+                    <PostShow numberColumn={'col-4'} row />
                 </SectionCollection>
             </div>
         </React.Fragment>

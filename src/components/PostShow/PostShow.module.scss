@@ -5,6 +5,53 @@
     padding: 0 12px;
 }
 
+.horizontal {
+    .post {
+        display: flex;
+        justify-content: space-between;
+    }
+    .thumb {
+        width: 30%;
+        height: auto;
+    }
+    .description {
+        width: 65%;
+    }
+}
+.largeShow {
+    .post {
+        padding: 25px 0;
+        border-bottom: 1px solid #efefef;
+    }
+    .description {
+        .title {
+            font-size: 2rem;
+        }
+    }
+}
+.miniShow {
+    .post {
+        padding: 15px 0;
+        border-bottom: 1px dotted #efefef;
+    }
+    .description {
+        margin: 0;
+        .title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+        .date {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+    }
+}
+
 .thumb {
     height: 180px;
     overflow: hidden;
@@ -34,7 +81,10 @@
 }
 
 .date {
+    display: flex;
     font-size: 1.4rem;
     margin-top: 8px;
-    display: flex;
+    b {
+        color: var(--red-color);
+    }
 }

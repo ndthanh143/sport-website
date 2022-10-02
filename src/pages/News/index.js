@@ -1,5 +1,13 @@
+import Pagination from '~/components/Pagination';
+import PostShow from '~/components/PostShow';
+
 function News() {
-    return <h1>News pages</h1>;
+    return (
+        <>
+            <PostShow horizontal largeShow />
+            <Pagination />
+        </>
+    );
 }
 
 export default News;

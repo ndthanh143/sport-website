@@ -1,0 +1,25 @@
+.container {
+    position: sticky;
+    top: 85px;
+}
+
+.posts-lastest {
+}
+
+.menu-list {
+    font-size: 1.6rem;
+
+    .item {
+        padding: 12px 0;
+        border-bottom: 1px #efefef dotted;
+
+        a {
+            transition: color 0.3s;
+
+            &:hover {
+                color: var(--red-color);
+                transition: color 0.3s;
+            }
+        }
+    }
+}
