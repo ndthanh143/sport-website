@@ -6,12 +6,15 @@ import banners from '~/assets/images/banner';
 import images from '~/assets/images';
 import FilterBlock from '~/components/FilterBlock';
 import Pagination from '~/components/Pagination';
+import Breadcrumb from '~/components/Breadcrumb';
 
 const cx = classNames.bind(styles);
 
 function Collection({ children }) {
+    // const crumbs = ['Danh mục', 'Tất cả sản phẩm'];
     return (
         <div className={cx('collection')}>
+            {/* <Breadcrumb Crumbs={crumbs} /> */}
             <div className={cx('banner')}>
                 <img src={banners[3].url} alt="collection" />
             </div>
