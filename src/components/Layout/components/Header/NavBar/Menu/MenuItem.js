@@ -2,12 +2,51 @@ import { NavLink } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
 import PropTypes from 'prop-types';
+import Submenu, { SubmenuItem } from './Submenu';
+import { FaChevronRight } from 'react-icons/fa';
+
 const cx = classNames.bind(styles);
-function MenuItem({ title, to, icon }) {
-    return (
+function MenuItem({ title, to, icon, hasSubmenu }) {
+    const ListSubmenuItem = {
+        footballClothe: ['Quần Áo Bóng Đá CP-SPORT', 'Quần Áo Bóng Đá EGAN', 'Quần Áo Bóng Đá Trẻ Em'],
+        clubClothe: ['Nguời lớn', 'Trẻ em'],
+    };
+    return hasSubmenu ? (
+        <>
+            <NavLink className={(nav) => cx('menu-item', { active: nav.isActive }, 'has-submenu')} to={to}>
+                <span className={cx('title')}>{title}</span>
+                {icon ? <span className={cx('icon')}>{icon}</span> : undefined}
+                <div className={cx('submenu-wrapper')}>
+                    <Submenu>
+                        <SubmenuItem title="Thời Trang Thể Thao" to="/collection"></SubmenuItem>
+
+                        <SubmenuItem
+                            title="Quần Áo Bóng Đá"
+                            to="/collection"
+                            icon={<FaChevronRight />}
+                            hasSubmenu
+                            ListSubmenuItem={ListSubmenuItem.footballClothe}
+                        ></SubmenuItem>
+
+                        <SubmenuItem title="Quần Áo Bóng Chuyền" to="/collection"></SubmenuItem>
+
+                        <SubmenuItem title="Trang Phục Chạy Bộ" to="/collection"></SubmenuItem>
+                        <SubmenuItem
+                            title="Đồ CLB - Đội Tuyển"
+                            to="/collection"
+                            icon={<FaChevronRight />}
+                            hasSubmenu
+                            ListSubmenuItem={ListSubmenuItem.clubClothe}
+                        ></SubmenuItem>
+                        <SubmenuItem title="Phụ Kiện Thể Thao" to="/collection"></SubmenuItem>
+                    </Submenu>
+                </div>
+            </NavLink>
+        </>
+    ) : (
         <NavLink className={(nav) => cx('menu-item', { active: nav.isActive })} to={to}>
             <span className={cx('title')}>{title}</span>
-            <span className={cx('icon')}>{icon}</span>
+            {icon ? <span className={cx('icon')}>{icon}</span> : undefined}
         </NavLink>
     );
 }
@@ -16,6 +55,7 @@ MenuItem.propTypes = {
     title: PropTypes.string.isRequired,
     to: PropTypes.node.isRequired,
     icon: PropTypes.node,
+    hasSubmenu: PropTypes.bool,
 };
 
 export default MenuItem;
