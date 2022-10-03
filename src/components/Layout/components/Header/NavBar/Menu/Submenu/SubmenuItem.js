@@ -15,8 +15,8 @@ function SubMenuItem({ title, to, icon, hasSubmenu, ListSubmenuItem }) {
             </Link>
             <div className={cx('submenu-wrapper', 'level-2')}>
                 <Submenu>
-                    {ListSubmenuItem.map((item) => (
-                        <SubmenuItem title={item} to="/collection"></SubmenuItem>
+                    {ListSubmenuItem.map((item, index) => (
+                        <SubmenuItem title={item} to="/collection" key={index}></SubmenuItem>
                     ))}
                 </Submenu>
             </div>
@@ -35,7 +35,7 @@ SubMenuItem.propTypes = {
     title: PropTypes.string.isRequired,
     to: PropTypes.node.isRequired,
     icon: PropTypes.node,
-    hasSubmenu: PropTypes.string,
+    hasSubmenu: PropTypes.bool,
     ListSubmenuItem: PropTypes.array,
 };
 

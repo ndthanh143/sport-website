@@ -99,23 +99,25 @@ function Footer() {
                 </div>
                 <div className={cx('btns')}>
                     <Link to="/" className={cx('btn')}>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="180px"
-                            height="60px"
-                            viewBox="0 0 180 60"
-                            class="border"
-                        >
-                            <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-                            <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 60">
+                            <polyline points="179,1 179,59 1,59 1,1 179,1" />
+                            <polyline points="179,1 179,59 1,59 1,1 179,1" />
                         </svg>
                         <span>Shopee</span>
                     </Link>
                     <Link to="/" className={cx('btn')}>
-                        Lazada
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 60">
+                            <polyline points="179,1 179,59 1,59 1,1 179,1" />
+                            <polyline points="179,1 179,59 1,59 1,1 179,1" />
+                        </svg>
+                        <span>Lazada</span>
                     </Link>
                     <Link to="/" className={cx('btn')}>
-                        Tiki
+                        <svg xmlns="http://www.w3.org/2000/svg" width="180px" height="60px" viewBox="0 0 180 60">
+                            <polyline points="179,1 179,59 1,59 1,1 179,1" />
+                            <polyline points="179,1 179,59 1,59 1,1 179,1" />
+                        </svg>
+                        <span>Tiki</span>
                     </Link>
                 </div>
             </div>

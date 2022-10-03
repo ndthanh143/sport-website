@@ -15,11 +15,9 @@ function LookBooks() {
                     <div className={cx('image')}>
                         <img src={combo.url} alt={combo.title} />
                         {combo.products.map((item, index) => (
-                            <>
-                                <span className={cx(`popover-${index + 1}`)}>
-                                    <PopoverDot product={item} />
-                                </span>
-                            </>
+                            <span className={cx(`popover-${index + 1}`)} key={index}>
+                                <PopoverDot product={item} />
+                            </span>
                         ))}
                     </div>
                     <div className={cx('detail')}>

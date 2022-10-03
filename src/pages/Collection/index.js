@@ -10,11 +10,14 @@ import Breadcrumb from '~/components/Breadcrumb';
 
 const cx = classNames.bind(styles);
 
-function Collection({ children }) {
-    // const crumbs = ['Danh mục', 'Tất cả sản phẩm'];
+function Collection() {
+    const ListCheckBox = {
+        brand: ['CP - SPORT', 'EGAN', 'KHÁC'],
+        price: ['Dưới 100.000', '100.000đ - 200.000đ', '200.000đ - 300.000đ', 'Trên 300.000đ'],
+        size: ['S', 'M', 'L', 'XL', 'XXL'],
+    };
     return (
         <div className={cx('collection')}>
-            {/* <Breadcrumb Crumbs={crumbs} /> */}
             <div className={cx('banner')}>
                 <img src={banners[3].url} alt="collection" />
             </div>
@@ -31,10 +34,10 @@ function Collection({ children }) {
                             Bộ lọc
                         </p>
                         <div className={cx('group-filter', 'row')}>
-                            <FilterBlock />
-                            <FilterBlock />
-                            <FilterBlock />
-                            <FilterBlock />
+                            <FilterBlock title="Thương hiệu" ListCheckBox={ListCheckBox.brand} />
+                            <FilterBlock title="Lọc giá" ListCheckBox={ListCheckBox.price} />
+                            <FilterBlock title="Màu sắc" ListCheckBox={[]} />
+                            <FilterBlock title="Kích thước" ListCheckBox={ListCheckBox.size} />
                         </div>
                     </div>
                     <div className={cx('wrap-list')}>
