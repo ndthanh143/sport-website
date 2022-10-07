@@ -3,8 +3,8 @@ import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
 const cx = classNames.bind(styles);
 
-function Menu({ children }) {
-    return <nav className={cx('menu')}>{children}</nav>;
+function Menu({ children, isSticky }) {
+    return <nav className={isSticky ? cx('menu', 'menu-sticky') : cx('menu')}>{children}</nav>;
 }
 
 Menu.propTypes = {

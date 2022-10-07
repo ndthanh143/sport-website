@@ -9,7 +9,7 @@ function MediumProductList({ numberColumn, horizontal }) {
     return (
         <div className={cx('product-list', 'row-wrap')}>
             {newProducts.map((item, index) => (
-                <div className={cx('product', numberColumn, { horizontal })} key={index}>
+                <Link to={`/product/${item.slug}`} className={cx('product', numberColumn, { horizontal })} key={index}>
                     <div className={cx('image-list')}>
                         <img src={item.urls[0]} alt={item.title} className={cx('first-image')} />
                         <img src={item.urls[1]} alt={item.title} className={cx('second-image')} />
@@ -22,7 +22,7 @@ function MediumProductList({ numberColumn, horizontal }) {
                         <p className={cx('price')}>{item.price},000₫</p>
                     </div>
                     {item.amount === 0 ? <span className={cx('label-sold-out')}>Hết hàng</span> : null}
-                </div>
+                </Link>
             ))}
         </div>
     );

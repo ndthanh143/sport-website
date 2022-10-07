@@ -10,6 +10,15 @@
         font-weight: bold;
     }
 }
+.menu-sticky {
+    background-color: #222;
+    .active {
+        color: var(--primary);
+    }
+    .menu-item {
+        color: var(--primary);
+    }
+}
 
 .menu-item {
     padding: 12px 6px;

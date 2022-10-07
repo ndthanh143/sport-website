@@ -9,6 +9,7 @@ const newProducts = [
             require('~/assets/images/categories/newProducts/product3_1.jpg'),
         ],
         to: '/',
+        slug: 'ao-polo-uv-egan-03-bao-ve-lan-da-phu-hop-tap-luyen-the-thao-di-choi-dao-pho-uv03',
     },
     {
         id: 2,
