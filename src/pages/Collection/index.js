@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import SectionCollection from '~/components/Layout/components/SectionCollection';
-import MediumProductList from '~/components/ProductShow/MediumProductList';
+import ProductShow from '~/components/ProductShow';
 import styles from './Collection.module.scss';
 import banners from '~/assets/images/banner';
 import images from '~/assets/images';
@@ -42,7 +42,7 @@ function Collection() {
                     </div>
                     <div className={cx('wrap-list')}>
                         <SectionCollection>
-                            <MediumProductList numberColumn="col-4" />
+                            <ProductShow numberColumn="col-4" />
                         </SectionCollection>
                     </div>
                     <Pagination />

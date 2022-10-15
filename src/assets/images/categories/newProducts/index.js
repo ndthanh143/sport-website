@@ -5,8 +5,10 @@ const newProducts = [
         price: 200,
         amount: 0,
         urls: [
-            require('~/assets/images/categories/newProducts/product3.jpg'),
             require('~/assets/images/categories/newProducts/product3_1.jpg'),
+            require('~/assets/images/categories/newProducts/product3_2.jpg'),
+            require('~/assets/images/categories/newProducts/product3_1.jpg'),
+            require('~/assets/images/categories/newProducts/product3_2.jpg'),
         ],
         to: '/',
         slug: 'ao-polo-uv-egan-03-bao-ve-lan-da-phu-hop-tap-luyen-the-thao-di-choi-dao-pho-uv03',

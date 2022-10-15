@@ -1,0 +1,36 @@
+.product {
+}
+
+.detail {
+}
+
+.content {
+    width: var(--content-pc-width);
+    margin: auto;
+}
+
+.wrap-gallery {
+    width: 43%;
+    background-color: #fff;
+    padding: 15px;
+}
+
+.wrap-detail {
+    width: 53%;
+}
+
+.wrap-gallery {
+    position: sticky;
+    top: 0;
+    margin-top: 40px;
+}
+
+.relation {
+    text-align: center;
+    border-top: 1px solid #e7e7e7;
+    margin-top: 40px;
+
+    .heading {
+        margin: 20px 0;
+    }
+}

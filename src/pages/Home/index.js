@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from '~/components/Layout/components/Slider';
 import Collections from '~/components/Layout/components/Collections';
 import SectionCollection from '~/components/Layout/components/SectionCollection';
-import MediumProductList from '~/components/ProductShow/MediumProductList';
+import ProductShow from '~/components/ProductShow';
 import Banner from '~/components/Banner';
 import banners from '~/assets/images/banner';
 import SectionLookBooks from '~/components/SectionLookBooks';
@@ -20,7 +20,7 @@ function Home() {
             <Collections />
             <div className={cx('section-new-product')}>
                 <SectionCollection title="sản phẩm mới" to="/collection">
-                    <MediumProductList numberColumn="col-4" />
+                    <ProductShow numberColumn="col-4" />
                     <div>
                         <Banner url={banners[0].url} to={banners[0].to} />
                     </div>
@@ -32,7 +32,7 @@ function Home() {
                 </SectionCollection>
             </div>
             <SectionCollection title="Trang phục bóng đá" to="/collection">
-                <MediumProductList numberColumn="col-4" horizontal />
+                <ProductShow numberColumn="col-4" horizontal />
                 <div className={cx('section-football-clothes', 'row')}>
                     <div className={cx('banner', 'col-2')}>
                         <Banner url={banners[1].url} to={banners[1].to} />
@@ -44,7 +44,7 @@ function Home() {
             </SectionCollection>
             <div className={cx('section-voleyball')}>
                 <SectionCollection title="Trang phục bóng chuyền" to="/collection">
-                    <MediumProductList numberColumn="col-6" />
+                    <ProductShow numberColumn="col-6" />
                 </SectionCollection>
             </div>
             <div className={cx('section-bottom')}>

@@ -53,6 +53,10 @@ a {
     width: 25%;
 }
 
+.col-5 {
+    width: 20%;
+}
+
 .col-6 {
     width: calc(100% / 6);
 }
@@ -65,4 +69,25 @@ a {
 .row-wrap {
     display: flex;
     flex-wrap: wrap;
+}
+
+// color class
+.red {
+    color: red;
+    background-color: red;
+}
+
+.orange {
+    color: orange;
+    background-color: orange;
+}
+
+.yellow {
+    color: yellow;
+    background-color: yellow;
+}
+
+.purple {
+    color: #800080;
+    background-color: #800080;
 }
