@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import styles from './ProductItemCard.module.scss';
 
 const cx = classNames.bind(styles);
-function ProductItemCard({ item, index, numberColumn, horizontal }) {
+function ProductItemCard({ item, numberColumn, horizontal }) {
     return (
-        <Link to={`/product`} className={cx('product', numberColumn, { horizontal })} key={index}>
+        <Link to={`/product`} className={cx('product', numberColumn, { horizontal })}>
             <div className={cx('image-list')}>
                 <img src={item.urls[0]} alt={item.title} className={cx('first-image')} />
                 <img src={item.urls[1]} alt={item.title} className={cx('second-image')} />

@@ -4,12 +4,10 @@ import className from 'classnames/bind';
 import styles from './BtnSlider.module.scss';
 const cx = className.bind(styles);
 
-function BtnSlider({ direction, moveSlide }) {
+function BtnSlider({ direction, moveSlide, classname }) {
+    const className = [classname, direction === 'next' ? cx('btn-slide', 'next') : cx('btn-slide', 'prev')];
     return (
-        <button
-            className={direction === 'next' ? cx('btn-slide', 'next') : cx('btn-slide', 'prev')}
-            onClick={moveSlide}
-        >
+        <button className={className.join(' ')} onClick={moveSlide}>
             {direction === 'next' ? <FaChevronRight /> : <FaChevronLeft />}
         </button>
     );

@@ -1,5 +1,7 @@
 .product-gallery {
-    width: '100%';
+    position: sticky;
+    top: 85px;
+    width: 100%;
     background-color: '#ccc';
-    padding: '10px';
+    padding: 10px;
 }

@@ -43,8 +43,8 @@ function Slider() {
                             </div>
                         ))}
                     </div>
-                    <BtnSlider moveSlide={prevSlide} direction="prev" />
-                    <BtnSlider moveSlide={nextSlide} direction="next" />
+                    <BtnSlider moveSlide={prevSlide} direction="prev" classname={cx('prev-btn')} />
+                    <BtnSlider moveSlide={nextSlide} direction="next" classname={cx('next-btn')} />
 
                     <div className={cx('container-dots')}>
                         {Array.from({ length: 4 }).map((_item, index) => (

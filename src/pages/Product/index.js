@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Product.module.scss';
 import ProductGallery from '~/components/ProductGallery';
@@ -27,37 +28,13 @@ function SamplePrevArrow(props) {
 function Product() {
     const settings = {
         className: 'center',
-        infinite: true,
+        infinite: false,
         centerPadding: '60px',
+        speed: 300,
         slidesToShow: 5,
         swipeToSlide: true,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    dots: true,
-                },
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    initialSlide: 2,
-                },
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
     };
     return (
         <div className={cx('product')}>

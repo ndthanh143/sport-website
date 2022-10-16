@@ -5,7 +5,7 @@ import SideBox from '~/components/SideBox';
 import PostShow from '~/components/PostShow';
 const cx = classNames.bind(styles);
 
-function SideBar() {
+function SideBar({ children }) {
     return (
         <div className={cx('container')}>
             <SideBox title="Bài viết mới nhất">

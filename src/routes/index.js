@@ -11,7 +11,7 @@ import SideBarLayout from '~/components/Layout/SideBarLayout';
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/contact', component: Contact },
-    { path: '/about', component: About },
+    { path: '/about', component: About, layout: SideBarLayout },
     { path: '/news', component: News, layout: SideBarLayout },
     { path: '/collection', component: Collection },
     { path: '/product', component: Product },

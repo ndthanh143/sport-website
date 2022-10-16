@@ -9,7 +9,7 @@ function ProductShow({ numberColumn, horizontal }) {
     return (
         <div className={cx('product-list', 'row-wrap')}>
             {newProducts.map((item, index) => (
-                <ProductItemCard item={item} index={index} numberColumn={numberColumn} horizontal={horizontal} />
+                <ProductItemCard item={item} numberColumn={numberColumn} horizontal={horizontal} key={index} />
             ))}
         </div>
     );

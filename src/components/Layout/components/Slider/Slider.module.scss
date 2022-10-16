@@ -42,4 +42,16 @@
             border-color: #ed1c24;
         }
     }
+
+    &:hover .prev-btn {
+        left: 10px;
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &:hover .next-btn {
+        right: 10px;
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+    }
 }
