@@ -6,7 +6,6 @@ import banners from '~/assets/images/banner';
 import images from '~/assets/images';
 import FilterBlock from '~/components/FilterBlock';
 import Pagination from '~/components/Pagination';
-import Breadcrumb from '~/components/Breadcrumb';
 
 const cx = classNames.bind(styles);
 
@@ -16,6 +15,7 @@ function Collection() {
         price: ['Dưới 100.000', '100.000đ - 200.000đ', '200.000đ - 300.000đ', 'Trên 300.000đ'],
         size: ['S', 'M', 'L', 'XL', 'XXL'],
     };
+
     return (
         <div className={cx('collection')}>
             <div className={cx('banner')}>

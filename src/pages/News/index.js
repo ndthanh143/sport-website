@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import Pagination from '~/components/Pagination';
 import PostShow from '~/components/PostShow';
 
