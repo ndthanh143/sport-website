@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function Button({ to, href, primary, primaryReverse, basic, children, onClick }) {
+function Button({ to, href, primary, primaryReverse, basic, children, onClick, disabled }) {
     let Comp = 'button';
     const props = {
         onClick,

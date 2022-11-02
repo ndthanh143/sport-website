@@ -18,7 +18,7 @@ function MenuItem({ title, to, icon, hasSubmenu }) {
                 {icon ? <span className={cx('icon')}>{icon}</span> : undefined}
                 <div className={cx('submenu-wrapper')}>
                     <Submenu>
-                        <SubmenuItem title="Thời Trang Thể Thao" to="/collection"></SubmenuItem>
+                        <SubmenuItem title="Thời Trang Thể Thao" to="/collection/thoi-trang-the-thao"></SubmenuItem>
 
                         <SubmenuItem
                             title="Quần Áo Bóng Đá"

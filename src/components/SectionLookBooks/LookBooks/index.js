@@ -3,7 +3,7 @@ import styles from './LookBooks.module.scss';
 import Button from '~/components/Button';
 import combos from '~/assets/images/categories/combos';
 import PopoverDot from './PopoverDot';
-import PopoverProduct from './PopoverProduct/PopoverProduct';
+// import PopoverProduct from './PopoverProduct/PopoverProduct';
 
 const cx = classNames.bind(styles);
 

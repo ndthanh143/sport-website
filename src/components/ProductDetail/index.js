@@ -6,10 +6,16 @@ import ColorSelection from '~/components/ColorSelection';
 import SizeSelection from '~/components/SizeSelection';
 import styles from './ProductDetail.module.scss';
 
-const cx = classNames.bind(styles);
-function ProductDetail({ info }) {
-    console.log(info.description());
+import galleries from '~/assets/images/categories/galleries';
+import { addItemToCart } from '~/actions/cartActions';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
+const cx = classNames.bind(styles);
+function ProductDetail({ product }) {
+    const { id } = useParams();
+
+    const [chooseSize, setChooseSize] = useState('');
     const [quantity, setQuantity] = useState(1);
 
     const handleIncrement = () => {
@@ -20,15 +26,21 @@ function ProductDetail({ info }) {
             setQuantity(quantity - 1);
         }
     };
+    const dispatch = useDispatch();
+
+    const addToCart = () => {
+        dispatch(addItemToCart(id, quantity));
+        alert('Item added successfully to cart');
+    };
 
     return (
         <div className={cx('product-detail')}>
             <div className={cx('order')}>
                 <div className={cx('heading')}>
-                    <h2>Bộ Quần Áo Bóng Đá VICTOR</h2>
+                    <h2>{product.name}</h2>
                 </div>
                 <div className={cx('price')}>
-                    <span>270.000đ</span>
+                    <span>{product.price.toLocaleString({ miniumFractionDigits: 3 })}đ</span>
                 </div>
                 <div className={cx('variants')}>
                     <div className={cx('size')}>
@@ -79,7 +91,9 @@ function ProductDetail({ info }) {
                             </button>
                         </div>
                         <div className={cx('add-btn')}>
-                            <Button primary>Thêm vào giỏ</Button>
+                            <Button primary onClick={addToCart}>
+                                Thêm vào giỏ
+                            </Button>
                         </div>
                     </div>
                 </div>
@@ -107,7 +121,7 @@ function ProductDetail({ info }) {
                     </li>
                 </ul>
             </div>
-            <div className={cx('description')}>{info.description()}</div>
+            <div className={cx('description')}>{galleries[0].description()}</div>
         </div>
     );
 }

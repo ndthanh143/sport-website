@@ -5,19 +5,19 @@ import styles from './ProductItemCard.module.scss';
 const cx = classNames.bind(styles);
 function ProductItemCard({ item, numberColumn, horizontal }) {
     return (
-        <Link to={`/product`} className={cx('product', numberColumn, { horizontal })}>
+        <Link to={`/product/${item._id}`} className={cx('product', numberColumn, { horizontal })}>
             <div className={cx('image-list')}>
-                <img src={item.urls[0]} alt={item.title} className={cx('first-image')} />
-                <img src={item.urls[1]} alt={item.title} className={cx('second-image')} />
+                <img src={item.images[0].url} alt={item.name} className={cx('first-image')} />
+                <img src={item.images[1].url} alt={item.name} className={cx('second-image')} />
             </div>
 
             <div className={cx('detail')}>
-                <Link to={item.to} className={cx('title')}>
-                    {item.title}
+                <Link to={`/product/${item._id}`} className={cx('title')}>
+                    {item.name}
                 </Link>
-                <p className={cx('price')}>{item.price},000₫</p>
+                <p className={cx('price')}>{item.price.toLocaleString({ miniumFractionDigits: 3 })}₫</p>
             </div>
-            {item.amount === 0 ? <span className={cx('label-sold-out')}>Hết hàng</span> : null}
+            {item.amount == 0 ? <span className={cx('label-sold-out')}>Hết hàng</span> : null}
         </Link>
     );
 }

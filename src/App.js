@@ -1,10 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes } from '~/routes';
 import { DefaultLayout } from '~/components/Layout';
-import { useEffect, useState } from 'react';
 import ScrollToTop from './ScrollToTop';
+import { useEffect } from 'react';
+import store from './store';
+import { loadUser } from '~/actions/userActions';
 
 function App() {
+    useEffect(() => {
+        store.dispatch(loadUser());
+    }, []);
+
     return (
         <Router>
             <ScrollToTop />

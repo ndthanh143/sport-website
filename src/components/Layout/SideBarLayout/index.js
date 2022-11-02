@@ -10,7 +10,6 @@ function SideBarLayout({ children, sideBarList }) {
     return (
         <>
             <Header />
-            <Breadcrumb />
             <div className={cx('container')}>
                 <div className={cx('content')}>{children}</div>
                 <div className={cx('wrap-sideBar')}>

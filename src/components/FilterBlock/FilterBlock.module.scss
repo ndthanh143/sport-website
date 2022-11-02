@@ -87,3 +87,12 @@
         cursor: pointer;
     }
 }
+
+.color-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    li {
+        padding: 0 5% 5%;
+    }
+}

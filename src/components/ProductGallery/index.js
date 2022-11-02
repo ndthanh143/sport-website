@@ -11,10 +11,10 @@ import styles from './ProductGallery.module.scss';
 const cx = classNames.bind(styles);
 
 // const cx = classNames.bind(styles);
-function ProductGallery({ images }) {
+function ProductGallery({ product }) {
     return (
         <div className={cx('product-gallery')}>
-            <ProductImagesSlider images={images} />
+            <ProductImagesSlider product={product} />
         </div>
     );
 }

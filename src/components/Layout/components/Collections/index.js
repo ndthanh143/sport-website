@@ -13,7 +13,7 @@ function Collections() {
         <div className={cx('collections')}>
             <div className={cx('container', 'row')}>
                 <div className={cx('video')}>
-                    <ReactPlayer url={videos.HomeCategory} width="100%" height="100%" />
+                    <ReactPlayer url={videos.HomeCategory} width="100%" height="100%" volume="0" />
                 </div>
                 <div className={cx('product-demo')}>
                     <img src={sportImages[0].url} alt="thoi-trang-the-thao" />
