@@ -6,7 +6,7 @@ import Collection from '~/pages/Collection';
 import ProductDetails from '~/pages/ProductDetails';
 import Search from '~/pages/Search';
 
-import SideBarLayout from '~/components/Layout/SideBarLayout';
+// import SideBarLayout from '~/components/Layout/SideBarLayout';
 import Account from '~/pages/Account';
 import Cart from '~/pages/Cart';
 import Dashboard from '~/pages/Admin/Dashboard';

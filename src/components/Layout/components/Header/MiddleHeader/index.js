@@ -8,7 +8,6 @@ import Search from '~/components/Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '~/actions/userActions';
 import { removeItemFromCart } from '~/actions/cartActions';
-import { XMark } from 'react-icons';
 import { FaChevronDown } from 'react-icons/fa';
 
 const cx = classNames.bind(styles);
@@ -67,7 +66,7 @@ function MiddleHeader() {
                             />
                         </Link>
                     </div>
-                    {/* <Search /> */}
+                    <Search />
                     <div className={cx('action')}>
                         <div
                             className={actionShow.account ? cx('account', 'js-action-show') : cx('account')}
@@ -83,7 +82,7 @@ function MiddleHeader() {
                                         </span>
                                         <span className={cx('box-text')}>
                                             Tài khoản của <br />
-                                            {/* {user.name} */}
+                                            {user.name}
                                         </span>
                                         <span className={cx('arrow-drop')}>
                                             <FaChevronDown />
@@ -108,7 +107,7 @@ function MiddleHeader() {
                                             <h2 className={cx('heading')}>Thông tin tài khoản</h2>
                                         </div>
                                         <div className={cx('inner')}>
-                                            <h2 className={cx('user-name')}>{/* {user.name} */}</h2>
+                                            <h2 className={cx('user-name')}>{user.name}</h2>
                                             <ul className={cx('list')}>
                                                 <li className={cx('item')}>
                                                     <Link to="/account">Tài khoản của tôi</Link>
