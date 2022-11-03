@@ -24,6 +24,16 @@ const productSchema = new mongoose.Schema({
     category: {
         type: String,
         required: [true, 'Please enter product category'],
+        enum: {
+            values: [
+                'Quan ao the thao',
+                'Quan ao bong da',
+                'Quan ao bong chuyen',
+                'Trang phuc chay bo',
+                'Phu kien the thao',
+                'Do CLB - Doi tuyen',
+            ],
+        },
     },
     amount: { type: Number, required: true, default: 0 },
     colors: [

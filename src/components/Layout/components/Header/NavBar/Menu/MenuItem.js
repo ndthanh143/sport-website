@@ -22,23 +22,23 @@ function MenuItem({ title, to, icon, hasSubmenu }) {
 
                         <SubmenuItem
                             title="Quần Áo Bóng Đá"
-                            to="/collection"
+                            to="/collection/quan-ao-bong-da"
                             icon={<FaChevronRight />}
                             hasSubmenu
                             ListSubmenuItem={ListSubmenuItem.footballClothe}
                         ></SubmenuItem>
 
-                        <SubmenuItem title="Quần Áo Bóng Chuyền" to="/collection"></SubmenuItem>
+                        <SubmenuItem title="Quần Áo Bóng Chuyền" to="/collection/quan-ao-bong-chuyen"></SubmenuItem>
 
-                        <SubmenuItem title="Trang Phục Chạy Bộ" to="/collection"></SubmenuItem>
+                        <SubmenuItem title="Trang Phục Chạy Bộ" to="/collection/trang-phuc-chay-bo"></SubmenuItem>
                         <SubmenuItem
                             title="Đồ CLB - Đội Tuyển"
-                            to="/collection"
+                            to="/collection/do-clb-doi-tuyen"
                             icon={<FaChevronRight />}
                             hasSubmenu
                             ListSubmenuItem={ListSubmenuItem.clubClothe}
                         ></SubmenuItem>
-                        <SubmenuItem title="Phụ Kiện Thể Thao" to="/collection"></SubmenuItem>
+                        <SubmenuItem title="Phụ Kiện Thể Thao" to="/collection/phu-kien-the-thao"></SubmenuItem>
                     </Submenu>
                 </div>
             </NavLink>

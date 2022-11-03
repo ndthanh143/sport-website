@@ -98,6 +98,12 @@
                     &:hover {
                         color: var(--red-color);
                     }
+
+                    a {
+                        &:hover {
+                            color: var(--red-color);
+                        }
+                    }
                 }
             }
         }

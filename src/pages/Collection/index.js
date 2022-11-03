@@ -13,6 +13,7 @@ import { useEffect, useState } from 'react';
 import { clearErrors, getAllProducts } from '~/actions/productActions';
 import Loader from '~/components/Loader';
 import Breadcrumb from '~/components/Breadcrumb';
+import { useLocation, useParams } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -21,13 +22,51 @@ function Collection() {
 
     const dispatch = useDispatch();
     const { loading, products, error, productsCount, resPerPage } = useSelector((state) => state.products);
+
+    //filter category
+    const location = useLocation();
+    let category;
+    let cases = [{ title: 'Danh mục', to: '/collection' }];
+    switch (location.pathname) {
+        case '/collection/thoi-trang-the-thao':
+            category = 'Quan ao the thao';
+            cases = cases.concat({ title: 'Thời trang thể Thao' });
+            break;
+        case '/collection/quan-ao-bong-da':
+            category = 'Quan ao bong da';
+            cases = cases.concat({ title: 'Quần áo bóng đá' });
+            break;
+        case '/collection/quan-ao-bong-chuyen':
+            category = 'Quan ao bong chuyen';
+            cases = cases.concat({ title: 'Quần áo bóng chuyền' });
+            break;
+        case '/collection/phu-kien-the-thao':
+            category = 'Phu kien the thao';
+            cases = cases.concat({ title: 'Phụ kiện thể thao' });
+            break;
+        case '/collection/trang-phuc-chay-bo':
+            category = 'Trang phuc chay bo';
+            cases = cases.concat({ title: 'Trang phục chạy bộ' });
+            break;
+        case '/collection/do-clb-doi-tuyen':
+            category = 'Do CLB - Doi tuyen';
+            cases = cases.concat({ title: 'Đồ CLB - Đội tuyển' });
+            break;
+        case '/collection':
+            category = null;
+            cases = cases.concat({ title: 'Tất cả sản phẩm' });
+        default:
+            break;
+    }
+
     useEffect(() => {
-        dispatch(getAllProducts(currentPage));
+        dispatch(getAllProducts(currentPage, category));
 
         if (error) {
             clearErrors(error);
         }
-    }, [dispatch, currentPage]);
+    }, [dispatch, currentPage, category]);
+
     const setCurrentPageNo = (pageNumber) => {
         setCurrentPage(pageNumber);
     };
@@ -58,7 +97,7 @@ function Collection() {
         return (
             <>
                 <ScrollToTop />
-                <Breadcrumb cases={[{ title: 'Danh mục', to: '/collection' }, { title: 'Tất cả sản phẩm' }]} />
+                <Breadcrumb cases={cases} />
                 <div className={cx('collection')}>
                     <div className={cx('banner')}>
                         <img src={banners[3].url} alt="collection" />
@@ -87,12 +126,19 @@ function Collection() {
                                     <ProductShow products={products} numberColumn="col-4" />
                                 </SectionCollection>
                             </div>
-                            <PaginationComp
-                                activePage={currentPage}
-                                itemsCountPerPage={resPerPage}
-                                totalItemsCount={productsCount}
-                                onChange={setCurrentPageNo}
-                            />
+                            {productsCount > resPerPage ? (
+                                <PaginationComp
+                                    activePage={currentPage}
+                                    itemsCountPerPage={resPerPage}
+                                    totalItemsCount={productsCount}
+                                    onChange={setCurrentPageNo}
+                                />
+                            ) : null}
+                            {productsCount > 0 ? null : (
+                                <div className={cx('result')}>
+                                    <h2>Chưa có sản phẩm nào trong danh mục này</h2>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

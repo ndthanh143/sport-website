@@ -17,7 +17,7 @@ function SideBox({ title, children, collapsible }) {
             <div className={cx('title')} onClick={collapsible ? handleCollapse : null}>
                 <h2>{title}</h2>
             </div>
-            <div className={collapse ? cx('content', 'collapsible') : cx('content')}>{children}</div>
+            <div className={collapse ? cx('content', 'collapsible') : cx('content')}> {children} </div>
         </div>
     );
 }

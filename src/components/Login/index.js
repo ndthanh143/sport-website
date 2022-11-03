@@ -22,7 +22,6 @@ function Login() {
         e.preventDefault();
         dispatch(login(email, password));
     };
-    console.log(error);
 
     useEffect(() => {
         if (isAuthenticated) {
