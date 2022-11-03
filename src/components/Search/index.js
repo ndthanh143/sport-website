@@ -24,6 +24,7 @@ function Search() {
 
     const dispatch = useDispatch();
     const { loading, productSearch, error } = useSelector((state) => state.productSearch);
+
     useEffect(() => {
         dispatch(getProductSearch(searchValue.trim()));
     }, [searchValue]);

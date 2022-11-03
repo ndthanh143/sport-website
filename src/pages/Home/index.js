@@ -21,7 +21,6 @@ const cx = classNames.bind(styles);
 function Home() {
     const dispatch = useDispatch();
     const { loading, products } = useSelector((state) => state.products);
-
     useEffect(() => {
         dispatch(getAllProducts());
     }, [dispatch]);
