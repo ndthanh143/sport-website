@@ -1,3 +1,4 @@
+import React from 'react';
 import classNames from 'classnames/bind';
 import { FaEnvelope, FaLocationArrow, FaPhone } from 'react-icons/fa';
 import Breadcrumb from '~/components/Breadcrumb';

@@ -27,7 +27,7 @@ export const login = (email, password) => async (dispatch) => {
                 'Content-Type': 'application/json',
             },
         };
-        const { data } = await axios.post('/api/v1/login', { email, password }, config);
+        const { data } = await axios.post('http://localhost:4000/api/v1/login', { email, password }, config);
         dispatch({ type: LOGIN_SUCCESS, payload: data.user });
     } catch (error) {
         dispatch({
@@ -51,7 +51,7 @@ export const register = (userData) => async (dispatch) => {
             },
         };
 
-        const { data } = await axios.post('/api/v1/register', userData, config);
+        const { data } = await axios.post('http://localhost:4000/api/v1/register', userData, config);
         dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
     } catch (error) {
         dispatch({
@@ -67,7 +67,7 @@ export const loadUser = () => async (dispatch) => {
             type: LOAD_USER_REQUEST,
         });
 
-        const { data } = await axios.get('/api/v1/me');
+        const { data } = await axios.get('http://localhost:4000/api/v1/me');
         dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
     } catch (error) {
         dispatch({
@@ -79,7 +79,7 @@ export const loadUser = () => async (dispatch) => {
 
 export const logout = () => async (dispatch) => {
     try {
-        await axios.get('/api/v1/logout');
+        await axios.get('http://localhost:4000/api/v1/logout');
         dispatch({ type: LOGOUT_SUCCESS });
     } catch (error) {
         dispatch({ type: LOGOUT_FAIL, payload: error.response.data.message });

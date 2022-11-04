@@ -3,7 +3,7 @@ const ErrorHandler = require('../utils/errorHandler');
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
 const sendToken = require('../utils/jwtToken');
 
-// Register a user => /api/v1/register
+// Register a user => localhost:4000/api/v1//register
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     const { name, email, password } = req.body;
 
@@ -12,7 +12,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     sendToken(user, 200, res);
 });
 
-// Login user => /api/v1/login
+// Login user => localhost:4000/api/v1//login
 exports.loginUser = catchAsyncErrors(async (req, res, next) => {
     const { email, password } = req.body;
 
@@ -47,7 +47,7 @@ exports.getUserProfile = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
-// Logout user => /api/v1/logout
+// Logout user => localhost:4000/api/v1//logout
 exports.logout = catchAsyncErrors(async (req, res, next) => {
     res.cookie('token', null, {
         expires: new Date(Date.now()),

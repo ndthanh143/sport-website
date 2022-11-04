@@ -21,11 +21,12 @@ export const getAllProducts =
                 type: ALL_PRODUCTS_REQUEST,
             });
 
-            let link = `/api/v1/products?page=${currentPage}`;
+            let link = `http://localhost:4000/api/v1/products?page=${currentPage}`;
             if (category) {
-                link = `/api/v1/products?page=${currentPage}&category=${category}`;
+                link = `http://localhost:4000/api/v1/products?page=${currentPage}&category=${category}`;
             }
             const { data } = await axios.get(link);
+            console.log(data);
             dispatch({
                 type: ALL_PRODUCTS_SUCCESS,
                 payload: data,
@@ -45,7 +46,7 @@ export const getProductSearch =
                 type: PRODUCT_SEARCH_REQUEST,
             });
 
-            const { data } = await axios.get(`/api/v1/productSearch?keyword=${keyword}`);
+            const { data } = await axios.get(`http://localhost:4000/api/v1/productSearch?keyword=${keyword}`);
             dispatch({
                 type: PRODUCT_SEARCH_SUCCESS,
                 payload: data,
@@ -64,7 +65,7 @@ export const getProductDetails = (id) => async (dispatch) => {
             type: PRODUCT_DETAILS_REQUEST,
         });
 
-        const { data } = await axios.get(`/api/v1/product/${id}`);
+        const { data } = await axios.get(`http://localhost:4000/api/v1/product/${id}`);
         dispatch({
             type: PRODUCT_DETAILS_SUCCESS,
             payload: data.product,

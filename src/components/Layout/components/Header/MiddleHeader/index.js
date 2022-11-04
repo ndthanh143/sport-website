@@ -20,7 +20,10 @@ function MiddleHeader() {
     let totalPrice = 0;
     const dispatch = useDispatch();
 
-    const { isAuthenticated, error, loading, user } = useSelector((state) => state.auth);
+    const { isAuthenticated, error, loading, user } = useSelector((state) => {
+        console.log(state);
+        return state.auth;
+    });
 
     const { cartItems } = useSelector((state) => state.cart);
 
@@ -54,6 +57,7 @@ function MiddleHeader() {
         e.stopPropagation();
     };
     if (loading) {
+        console.log('aaa');
     } else {
         return (
             <div className={cx('middle')}>
@@ -107,7 +111,7 @@ function MiddleHeader() {
                                             <h2 className={cx('heading')}>Thông tin tài khoản</h2>
                                         </div>
                                         <div className={cx('inner')}>
-                                            <h2 className={cx('user-name')}>{user.name}</h2>
+                                            <h2 className={cx('user-name')}>{/* {user.name} */}</h2>
                                             <ul className={cx('list')}>
                                                 <li className={cx('item')}>
                                                     <Link to="/account">Tài khoản của tôi</Link>
