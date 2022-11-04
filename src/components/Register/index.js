@@ -121,8 +121,9 @@ function Register() {
                             </p>
                         </div>
                     </div>
-                    {openModal && <SuccessModal />}
+                    {/* {openModal && <SuccessModal />} */}
                 </div>
+                <SuccessModal />
             </>
         );
     }
