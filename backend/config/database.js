@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+// const DB_URI = require('./keys')
 const connectDatabase = () => {
     mongoose
         .connect(process.env.DB_LOCAL_URI, {
