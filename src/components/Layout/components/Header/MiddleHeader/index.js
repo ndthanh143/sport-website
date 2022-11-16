@@ -21,7 +21,6 @@ function MiddleHeader() {
     const dispatch = useDispatch();
 
     const { isAuthenticated, error, loading, user } = useSelector((state) => {
-        console.log(state);
         return state.auth;
     });
 
@@ -50,14 +49,13 @@ function MiddleHeader() {
 
     const handleLogout = () => {
         dispatch(logout());
-        window.location.reload();
+        // window.location.reload();
     };
 
     const handleDropdownClick = (e) => {
         e.stopPropagation();
     };
     if (loading) {
-        console.log('aaa');
     } else {
         return (
             <div className={cx('middle')}>
@@ -94,7 +92,7 @@ function MiddleHeader() {
                                     </div>
                                 </div>
                             ) : (
-                                <Link to="/account/login" className={cx('text')}>
+                                <Link to="/login" className={cx('text')}>
                                     <div className={cx('link')}>
                                         <span className={cx('box-icon')}>
                                             <img src={images.user} alt="User" />
@@ -111,14 +109,18 @@ function MiddleHeader() {
                                             <h2 className={cx('heading')}>Thông tin tài khoản</h2>
                                         </div>
                                         <div className={cx('inner')}>
-                                            <h2 className={cx('user-name')}>{/* {user.name} */}</h2>
+                                            <h2 className={cx('user-name')}>{user.name}</h2>
                                             <ul className={cx('list')}>
                                                 <li className={cx('item')}>
                                                     <Link to="/account">Tài khoản của tôi</Link>
                                                 </li>
-                                                <li className={cx('item')}>
-                                                    <Link to="/account/address">Danh sách địa chỉ</Link>
-                                                </li>
+                                                {user && user.role !== 'user' ? (
+                                                    <li className={cx('item')}>
+                                                        <Link to="/admin/dashboard">
+                                                            <b>Trang quản lý</b>
+                                                        </Link>
+                                                    </li>
+                                                ) : null}
                                                 <li className={cx('item')} onClick={handleLogout}>
                                                     Đăng xuất
                                                 </li>

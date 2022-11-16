@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import Button from '~/components/Button';
 import styles from './Register.module.scss';
 import { register, clearErrors } from '~/actions/userActions';
-import SuccessModal from '~/components/RegisterSuccess';
+import SuccessModal from '~/components/SuccessModal';
 import Loader from '~/components/Loader';
 const cx = classNames.bind(styles);
 
@@ -117,13 +117,12 @@ function Register() {
                         </form>
                         <div className={cx('secondary-action')}>
                             <p>
-                                Đã có tài khoản ? &nbsp;<Link to="/account/login">Đăng nhập</Link>
+                                Đã có tài khoản ? &nbsp;<Link to="/login">Đăng nhập</Link>
                             </p>
                         </div>
                     </div>
-                    {/* {openModal && <SuccessModal />} */}
+                    {openModal && <SuccessModal title={'Registered successfully'} to={'/login'} />}
                 </div>
-                <SuccessModal />
             </>
         );
     }

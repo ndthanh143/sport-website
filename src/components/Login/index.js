@@ -42,7 +42,7 @@ function Login() {
                 </div>
 
                 <div className={cx('account-form')}>
-                    <form onSubmit={submitHandler}>
+                    <form onSubmit={(e) => submitHandler(e)}>
                         <div className={cx('input-wrapper')}>
                             <input
                                 type="email"
@@ -78,7 +78,7 @@ function Login() {
                     </form>
                     <div className={cx('secondary-action')}>
                         <p>
-                            Khách hàng mới? <Link to="/account/register">Tạo tài khoản</Link>
+                            Khách hàng mới? <Link to="/register">Tạo tài khoản</Link>
                         </p>
                         <p>
                             Quên mật khẩu? <a href="/password/forgot">Khôi phục mật khẩu</a>

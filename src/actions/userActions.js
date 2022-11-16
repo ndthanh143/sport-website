@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '~/api/axios';
 
 import {
     LOGIN_REQUEST,
@@ -13,7 +13,39 @@ import {
     LOAD_USER_FAIL,
     LOGOUT_FAIL,
     CLEAR_ERRORS,
+    ALL_USERS_REQUEST,
+    ALL_USERS_FAIL,
+    ALL_USERS_SUCCESS,
+    DELETE_USER_REQUEST,
+    DELETE_USER_SUCCESS,
+    DELETE_USER_FAIL,
 } from '~/constants/userConstants';
+
+// Get all users
+export const getAllUsers = () => async (dispatch) => {
+    try {
+        dispatch({ type: ALL_USERS_REQUEST });
+        const { data } = await axios.get('admin/users');
+        dispatch({ type: ALL_USERS_SUCCESS, payload: data.users });
+    } catch (error) {
+        dispatch({
+            type: ALL_USERS_FAIL,
+            payload: error.response.data.message,
+        });
+    }
+};
+
+export const deleteUser = (id) => async (dispatch) => {
+    try {
+        dispatch({ type: DELETE_USER_REQUEST });
+        const { data } = await axios.delete(`admin/user/${id}`);
+        dispatch({ type: DELETE_USER_SUCCESS, payload: id });
+    } catch (error) {
+        dispatch({ type: DELETE_USER_FAIL, payload: error });
+    }
+};
+
+// export const updateUser = (id,)
 
 // Login
 export const login = (email, password) => async (dispatch) => {
@@ -27,7 +59,13 @@ export const login = (email, password) => async (dispatch) => {
                 'Content-Type': 'application/json',
             },
         };
-        const { data } = await axios.post('http://localhost:4000/api/v1/login', { email, password }, config);
+        const { data } = await axios.post(
+            'login',
+
+            { email, password },
+
+            config,
+        );
         dispatch({ type: LOGIN_SUCCESS, payload: data.user });
     } catch (error) {
         dispatch({
@@ -38,7 +76,6 @@ export const login = (email, password) => async (dispatch) => {
 };
 
 // Register user
-
 export const register = (userData) => async (dispatch) => {
     try {
         dispatch({
@@ -51,7 +88,7 @@ export const register = (userData) => async (dispatch) => {
             },
         };
 
-        const { data } = await axios.post('http://localhost:4000/api/v1/register', userData, config);
+        const { data } = await axios.post('register', userData, config);
         dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
     } catch (error) {
         dispatch({
@@ -67,7 +104,7 @@ export const loadUser = () => async (dispatch) => {
             type: LOAD_USER_REQUEST,
         });
 
-        const { data } = await axios.get('http://localhost:4000/api/v1/me');
+        const { data } = await axios.get('me');
         dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
     } catch (error) {
         dispatch({
@@ -78,8 +115,11 @@ export const loadUser = () => async (dispatch) => {
 };
 
 export const logout = () => async (dispatch) => {
+    const config = {
+        withCredentials: true,
+    };
     try {
-        await axios.get('http://localhost:4000/api/v1/logout');
+        await axios.get('logout', config);
         dispatch({ type: LOGOUT_SUCCESS });
     } catch (error) {
         dispatch({ type: LOGOUT_FAIL, payload: error.response.data.message });

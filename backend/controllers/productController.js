@@ -32,6 +32,15 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
         products,
     });
 });
+// Get admin products => /api/v1/admin/products
+exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
+    const products = await Product.find();
+
+    res.status(200).json({
+        success: true,
+        products,
+    });
+});
 // Get product search
 exports.getProductSearch = catchAsyncErrors(async (req, res, next) => {
     const apiFeatures = new APIFeature(Product.find(), req.query).search();

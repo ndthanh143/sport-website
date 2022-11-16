@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import Button from '~/components/Button';
@@ -11,6 +11,8 @@ const cx = classNames.bind(styles);
 
 function Cart() {
     const [note, setNote] = useState('');
+    const navigate = useNavigate();
+    const { isAuthenticated } = useSelector((state) => state.auth);
 
     const handleIncrement = (index) => {
         // cartItems[index].quantity--;
@@ -19,6 +21,13 @@ function Cart() {
     const handleDecrement = (index) => {
         // cartItems[index].quantity++;
         // alert(cartItems[index].quantity);
+    };
+    const checkoutHandler = () => {
+        if (isAuthenticated) {
+            navigate('/shipping');
+        } else {
+            navigate('/login?');
+        }
     };
 
     const { cartItems } = useSelector((state) => state.cart);
@@ -94,7 +103,7 @@ function Cart() {
                                 </li>
                                 <li className={cx('item')}>
                                     <p className={cx('sub-title')}>Bạn có thể nhập mã giảm giá ở trang thanh toán</p>
-                                    <div className={cx('button-pay')}>
+                                    <div className={cx('button-pay')} onClick={checkoutHandler}>
                                         <Button primary>Thanh toán</Button>
                                     </div>
                                 </li>

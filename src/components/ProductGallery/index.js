@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/thumbs';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
 import ProductImagesSlider from '~/components/product-images-slider';
 import classNames from 'classnames/bind';
 import styles from './ProductGallery.module.scss';

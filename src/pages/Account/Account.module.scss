@@ -1,16 +1,31 @@
 .container {
     margin-top: 40px;
     margin-bottom: 40px;
-    width: var(--content-pc-width);
-    margin-left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
 }
 
 .heading {
     text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    position: relative;
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 4px;
+        background-color: #000;
+    }
 }
 .wrapper {
+    margin: auto;
+    width: var(--content-pc-width);
     display: flex;
+    justify-content: center;
 }
 .sidebar {
     width: 25%;
@@ -39,33 +54,4 @@
 
 .content {
     flex: 1;
-}
-
-.info {
-    .title {
-        border-bottom: 1px solid #ededed;
-    }
-
-    .detail {
-        margin-top: 10px;
-
-        .text {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-        .userName {
-            font-size: 1.7rem;
-        }
-    }
-}
-
-.order {
-    margin-top: 40px;
-    padding: 10px;
-    border: 10px solid #d9edf7;
-
-    .text {
-        font-size: 1.5rem;
-        margin-bottom: 8px;
-    }
 }

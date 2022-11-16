@@ -10,6 +10,14 @@ import Search from '~/pages/Search';
 import Account from '~/pages/Account';
 import Cart from '~/pages/Cart';
 import Dashboard from '~/pages/Admin/Dashboard';
+import ListProducts from '~/pages/Admin/ListProducts';
+import SideBarLayout from '~/components/Layout/SideBarLayout';
+import UpdateProduct from '~/pages/Admin/UpdateProduct';
+import NewProduct from '~/pages/Admin/NewProduct';
+import ListUsers from '~/pages/Admin/ListUsers';
+import Checkout from '~/pages/Checkout';
+import Login from '~/components/Login';
+import Register from '~/components/Register';
 
 //public routes
 const publicRoutes = [
@@ -27,11 +35,25 @@ const publicRoutes = [
     { path: '/product/:id', component: ProductDetails },
     { path: '/search/:keyword', component: Search },
     { path: '/account', component: Account },
-    { path: '/account/login', component: Account },
-    { path: '/account/register', component: Account },
+    { path: '/myorders', component: Account },
+    { path: '/order/:id', component: Account },
+
+    { path: '/login', component: Login },
+    { path: '/register', component: Register },
     { path: '/cart', component: Cart },
+    { path: '/checkout', component: Checkout },
+    { path: '/shipping', component: Checkout },
+    { path: '/order/confirm', component: Checkout },
+    { path: '/order/payment', component: Checkout },
+    { path: '/order/success', component: Checkout },
 ];
 
-const privateRoutes = [{ path: '/admin/dashboard', component: Dashboard }];
+const privateRoutes = [
+    { path: '/admin/dashboard', component: Dashboard, layout: SideBarLayout },
+    { path: '/admin/product', component: ListProducts, layout: SideBarLayout },
+    { path: '/admin/product/new', component: NewProduct, layout: SideBarLayout },
+    { path: '/admin/product/edit/:id', component: UpdateProduct, layout: SideBarLayout },
+    { path: '/admin/users', component: ListUsers, layout: SideBarLayout },
+];
 
 export { publicRoutes, privateRoutes };

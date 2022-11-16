@@ -11,16 +11,32 @@ import {
     LOAD_USER_SUCCESS,
     LOAD_USER_FAIL,
     CLEAR_ERRORS,
+    ALL_USERS_REQUEST,
+    ALL_USERS_SUCCESS,
+    ALL_USERS_FAIL,
+    UPDATE_USER_REQUEST,
+    UPDATE_USER_SUCCESS,
+    UPDATE_USER_FAIL,
+    DELETE_USER_REQUEST,
+    DELETE_USER_SUCCESS,
+    DELETE_USER_FAIL,
 } from '~/constants/userConstants';
 
-export const authReducer = (state = { user: {} }, action) => {
+export const authReducer = (state = { user: {}, users: [] }, action) => {
     switch (action.type) {
         case LOGIN_REQUEST:
         case LOAD_USER_REQUEST:
             return {
+                ...state,
                 loading: true,
                 isAuthenticated: false,
             };
+        case ALL_USERS_REQUEST:
+            return {
+                ...state,
+                loading: true,
+            };
+
         case REGISTER_USER_REQUEST:
             return {
                 loading: true,
@@ -32,6 +48,13 @@ export const authReducer = (state = { user: {} }, action) => {
                 loading: false,
                 isAuthenticated: true,
                 user: action.payload,
+            };
+        case ALL_USERS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                isAuthenticated: true,
+                users: action.payload,
             };
         case REGISTER_USER_SUCCESS:
             return {
@@ -52,6 +75,7 @@ export const authReducer = (state = { user: {} }, action) => {
             };
         case LOAD_USER_FAIL:
             return {
+                ...state,
                 loading: false,
                 isAuthenticated: false,
                 user: null,
@@ -64,7 +88,7 @@ export const authReducer = (state = { user: {} }, action) => {
                 loading: false,
                 isAuthenticated: false,
                 user: null,
-                error: action,
+                error: action.payload,
             };
         case REGISTER_USER_FAIL:
             return {
@@ -73,6 +97,86 @@ export const authReducer = (state = { user: {} }, action) => {
                 user: null,
                 error: action.payload,
             };
+        case ALL_USERS_FAIL:
+            return {
+                ...state,
+                loading: false,
+                users: null,
+                error: action.payload,
+            };
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null,
+            };
+
+        default:
+            return state;
+    }
+};
+
+export const deleteUserReducer = (state = {}, action) => {
+    switch (action.type) {
+        case DELETE_USER_REQUEST:
+            return {
+                ...state,
+                loading: true,
+            };
+        case DELETE_USER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                isDeleted: action.payload,
+            };
+        case DELETE_USER_FAIL:
+            return {
+                ...state,
+                loading: false,
+                isDeleted: false,
+            };
+
+        // case DELETE_USER_RESET:
+        //     return {
+        //         ...state,
+        //         isDeleted: false,
+        //     };
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null,
+            };
+
+        default:
+            return state;
+    }
+};
+
+export const updateUserReducer = (state = { user: {} }, action) => {
+    switch (action.type) {
+        case UPDATE_USER_REQUEST:
+            return {
+                ...state,
+                loading: true,
+            };
+        case UPDATE_USER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                success: action.payload.success,
+                user: action.payload.user,
+            };
+        case UPDATE_USER_FAIL:
+            return {
+                ...state,
+                loading: false,
+                success: action.payload.success,
+            };
+
+        // case NEW_USER_RESET:
+        //     return {
+        //         ...state,
+        //     };
         case CLEAR_ERRORS:
             return {
                 ...state,

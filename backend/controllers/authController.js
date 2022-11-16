@@ -9,7 +9,11 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 
     const user = await User.create({ name, email, password });
 
-    sendToken(user, 200, res);
+    // sendToken(user, 200, res);
+    res.status(200).json({
+        success: true,
+        user,
+    });
 });
 
 // Login user => localhost:4000/api/v1//login
@@ -38,20 +42,13 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
     sendToken(user, 200, res);
 });
 
-exports.getUserProfile = catchAsyncErrors(async (req, res, next) => {
-    const user = await User.findById(req.user.id);
-
-    res.status(200).json({
-        success: true,
-        user,
-    });
-});
-
 // Logout user => localhost:4000/api/v1//logout
 exports.logout = catchAsyncErrors(async (req, res, next) => {
     res.cookie('token', null, {
         expires: new Date(Date.now()),
         httpOnly: true,
+        sameSite: 'none',
+        secure: true,
     });
 
     res.status(200).json({
